@@ -1,5 +1,6 @@
 from django.shortcuts import render,redirect
 from .models import *
+from django.http import HttpResponse
 
 def blogs_view(request):
 
@@ -15,7 +16,16 @@ def blogs_view(request):
             blog_content = blog_content,
             blog_thumbnail = blog_thumbnail,
          )
+        return redirect('/blog/')
 
+    queryset = blogs.objects.all()
+    context = {
+        'blog_list': queryset
+    }  
+   
+    return render(request,'form.html',context)
 
-        return redirect('/blog')
-    return render(request,'form.html')
+def delete_blog(request,id):
+    queryset = blogs.objects.get(id = id)
+    queryset.delete()
+    return redirect('/blog/')

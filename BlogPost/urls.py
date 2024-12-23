@@ -23,7 +23,8 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('blog/',blogs_view, name='blog')
+    path('blog/',blogs_view, name='blog'),
+    path('delete-blog/<id>/',delete_blog, name='delete-blog'),
 ]
 
 if settings.DEBUG:
