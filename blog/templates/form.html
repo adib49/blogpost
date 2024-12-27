@@ -21,10 +21,6 @@
               <label for="exampleInputPassword1" class="form-label" >BlogContent</label>
               <textarea class="form-control" name="blog_content"></textarea>
             </div>
-            <div class="mb-3">
-                <label for="exampleInputPassword1" class="form-label">Thumbnail</label>
-                <input type="file" class="form-control" name="blog_thumbnail">
-              </div>
               <button type="submit" class="btn btn-success">Post</button>
           </form>  
           <br><br><br><br>
@@ -45,7 +41,6 @@
           <th scope="col">#</th>
           <th scope="col">Blog_title</th>
           <th scope="col">Blog_Content</th>
-          <th scope="col">Thumbnail</th>
           <th scope="col">Actions</th>
         </tr>
       </thead>
@@ -55,7 +50,6 @@
           <th scope="row">{{forloop.counter}}</th>
           <td>{{blog.blog_name}}</td>
           <td>{{blog.blog_content}}</td>
-          <td><img src="{{ blog.blog_thumbnail.url }}" style="height: 100px;">Thumbnail</td>
           <td><a href="/delete-blog/{{blog.id}}" class="btn btn-danger">Delete</a>
           <a href="/update-blog/{{blog.id}}" class="btn btn-success">Update</a></td>
         </tr>

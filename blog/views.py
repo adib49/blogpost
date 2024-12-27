@@ -9,12 +9,10 @@ def blogs_view(request):
 
         blog_name = data.get('blog_name')
         blog_content = data.get('blog_content')
-        blog_thumbnail = request.FILES.get('blog_thumbnail')
 
         blogs.objects.create(
             blog_name = blog_name,
-            blog_content = blog_content,
-            blog_thumbnail = blog_thumbnail,
+            blog_content = blog_content
          )
         return redirect('/blog/')
 
@@ -41,17 +39,11 @@ def update_blog(request,id):
 
         blog_name = data.get('blog_name')
         blog_content = data.get('blog_content')
-        blog_thumbnail = request.FILES.get('blog_thumbnail')
 
         
         
         queryset.blog_name = blog_name
         queryset.blog_content = blog_content
-
-
-
-        if blog_thumbnail:
-            queryset.blog_thumbnail = blog_thumbnail
 
         queryset.save()
         return redirect('/blog/')
