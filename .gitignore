@@ -1,0 +1,8 @@
+venv/
+BlogPost.code-worspace
+*.log
+*.pot
+**/__pycache__/
+*.pyc
+db.sqlite3
+media/
