@@ -23,13 +23,13 @@ from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('', blogs_view, name='home'),
     path('blog/',blogs_view, name='blog'),
     path('delete-blog/<id>/',delete_blog, name='delete-blog'),
     path('update-blog/<id>/',update_blog, name='update-blog')
     
 ]
 
-if settings.DEBUG:
-    urlpatterns += static(settings.MEDIA_URL,document_root =settings.MEDIA_ROOT)
 
+urlpatterns += static(settings.MEDIA_URL,document_root =settings.MEDIA_ROOT)
 urlpatterns += staticfiles_urlpatterns()
