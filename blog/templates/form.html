@@ -55,7 +55,7 @@
           <th scope="row">{{forloop.counter}}</th>
           <td>{{blog.blog_name}}</td>
           <td>{{blog.blog_content}}</td>
-          <td><img src ="/media/{{blog.blog_thumbnail}}" style="height: 100px;"></td>
+          <td><img src="{{ blog.blog_thumbnail.url }}" style="height: 100px;">Thumbnail</td>
           <td><a href="/delete-blog/{{blog.id}}" class="btn btn-danger">Delete</a>
           <a href="/update-blog/{{blog.id}}" class="btn btn-success">Update</a></td>
         </tr>
