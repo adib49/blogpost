@@ -19,10 +19,13 @@ def blogs_view(request):
         return redirect('/blog/')
 
     queryset = blogs.objects.all()
+    if request.GET.get('search'):
+        queryset = queryset.filter(blog_name__icontains = request.GET.get('search'))
+    
     context = {
         'blog_list': queryset
-    }  
-   
+    }
+    
     return render(request,'form.html',context)
 
 def delete_blog(request,id):
